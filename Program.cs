@@ -10,7 +10,7 @@ namespace Calculator
             int choice = default;
 
             Console.WriteLine("Insert number: ");
-            double number1 = Convert.ToInt32(Console.ReadLine());
+            double number1 = Convert.ToDouble(Console.ReadLine());
 
         Label:
 
@@ -44,7 +44,7 @@ namespace Calculator
             }
 
             Console.WriteLine("\nInsert number: ");
-            double number2 = Convert.ToInt32(Console.ReadLine());
+            double number2 = Convert.ToDouble(Console.ReadLine());
 
             double result = default;
 
@@ -72,10 +72,9 @@ namespace Calculator
             }
 
             number1 = result;
-            
+
             goto Label;
 
         }
     }
 }
-
