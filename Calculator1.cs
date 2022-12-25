@@ -1,10 +1,31 @@
-﻿using System;
+using System;
 using System.Reflection.Emit;
 
 namespace Calculator
 {
     class Program
     {
+
+        static void Plus(out double result, double num1, double num2)
+        {
+            result = num1 + num2;
+        }
+        
+        static void Minus(out double result, double num1, double num2)
+        {
+            result = num1 - num2;
+        }
+        
+        static void Divide(out double result, double num1, double num2)
+        {
+            result = num1 / num2;
+        }
+        
+        static void Multiple(out double result, double num1, double num2)
+        {
+            result = num1 * num2;
+        }
+
         static void Main()
         {
             int choice = default;
@@ -17,31 +38,6 @@ namespace Calculator
             Console.WriteLine("\nInsert operation: ");
             ConsoleKeyInfo key = Console.ReadKey();
 
-            if (key.Key == ConsoleKey.OemPlus)
-            {
-                // Console.WriteLine("+");
-                choice = 1;
-            }
-            else if (key.Key == ConsoleKey.Oem2)
-            {
-                // Console.WriteLine("/");
-                choice = 4;
-            }
-            else if (key.Key == ConsoleKey.OemMinus)
-            {
-                choice = 2;
-                // Console.WriteLine("-");
-            }
-            else if (key.Key == ConsoleKey.D8)
-            {
-                //  Console.WriteLine("*");
-                choice = 3;
-            }
-            else
-            {
-                goto Label;
-                Console.WriteLine(key.Key);
-            }
 
             Console.WriteLine("\nInsert number: ");
             double number2 = Convert.ToDouble(Console.ReadLine());
@@ -49,26 +45,28 @@ namespace Calculator
             double result = default;
 
             Console.Write("Result: ");
-            switch (choice)
+            switch (key.Key)
             {
                 case 0:
                     break;
-                case 1:
-                    result = number2 + number1;
+                case ConsoleKey.OemPlus:
+                    Plus(out result, number1, number2);
                     Console.WriteLine(result);
                     break;
-                case 2:
-                    result = number1 - number2;
+                case ConsoleKey.OemMinus:
+                    Minus(out result, number1, number2);    
                     Console.WriteLine(result);
                     break;
-                case 3:
-                    result = number1 * number2;
+                case ConsoleKey.D8:
+                    Multiple(out result, number1, number2);
                     Console.WriteLine(result);
                     break;
-                case 4:
-                    result = number1 / number2;
+                case ConsoleKey.Oem2:
+                    Divide(out result, number1, number2);
                     Console.WriteLine(result);
                     break;
+                default:
+                    goto Label;
             }
 
             number1 = result;
