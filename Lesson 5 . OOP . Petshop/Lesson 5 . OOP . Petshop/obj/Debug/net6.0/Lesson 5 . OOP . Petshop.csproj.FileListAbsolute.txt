@@ -1,0 +1,15 @@
+C:\Users\user\source\repos\Lesson 5 . OOP . Petshop\Lesson 5 . OOP . Petshop\obj\Debug\net6.0\Lesson 5 . OOP . Petshop.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\Lesson 5 . OOP . Petshop\Lesson 5 . OOP . Petshop\obj\Debug\net6.0\Lesson 5 . OOP . Petshop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\Lesson 5 . OOP . Petshop\Lesson 5 . OOP . Petshop\obj\Debug\net6.0\Lesson 5 . OOP . Petshop.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\Lesson 5 . OOP . Petshop\Lesson 5 . OOP . Petshop\obj\Debug\net6.0\Lesson 5 . OOP . Petshop.AssemblyInfo.cs
+C:\Users\user\source\repos\Lesson 5 . OOP . Petshop\Lesson 5 . OOP . Petshop\obj\Debug\net6.0\Lesson 5 . OOP . Petshop.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Lesson 5 . OOP . Petshop\Lesson 5 . OOP . Petshop\bin\Debug\net6.0\Lesson 5 . OOP . Petshop.exe
+C:\Users\user\source\repos\Lesson 5 . OOP . Petshop\Lesson 5 . OOP . Petshop\bin\Debug\net6.0\Lesson 5 . OOP . Petshop.deps.json
+C:\Users\user\source\repos\Lesson 5 . OOP . Petshop\Lesson 5 . OOP . Petshop\bin\Debug\net6.0\Lesson 5 . OOP . Petshop.runtimeconfig.json
+C:\Users\user\source\repos\Lesson 5 . OOP . Petshop\Lesson 5 . OOP . Petshop\bin\Debug\net6.0\Lesson 5 . OOP . Petshop.dll
+C:\Users\user\source\repos\Lesson 5 . OOP . Petshop\Lesson 5 . OOP . Petshop\bin\Debug\net6.0\Lesson 5 . OOP . Petshop.pdb
+C:\Users\user\source\repos\Lesson 5 . OOP . Petshop\Lesson 5 . OOP . Petshop\obj\Debug\net6.0\Lesson 5 . OOP . Petshop.dll
+C:\Users\user\source\repos\Lesson 5 . OOP . Petshop\Lesson 5 . OOP . Petshop\obj\Debug\net6.0\refint\Lesson 5 . OOP . Petshop.dll
+C:\Users\user\source\repos\Lesson 5 . OOP . Petshop\Lesson 5 . OOP . Petshop\obj\Debug\net6.0\Lesson 5 . OOP . Petshop.pdb
+C:\Users\user\source\repos\Lesson 5 . OOP . Petshop\Lesson 5 . OOP . Petshop\obj\Debug\net6.0\Lesson 5 . OOP . Petshop.genruntimeconfig.cache
+C:\Users\user\source\repos\Lesson 5 . OOP . Petshop\Lesson 5 . OOP . Petshop\obj\Debug\net6.0\ref\Lesson 5 . OOP . Petshop.dll
