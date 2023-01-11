@@ -1,79 +1,141 @@
-﻿using System;
-using System.Reflection.Emit;
+﻿
+//Task:
 
-namespace Calculator
+//Konsolda 10 sualdan ibaret imtahan yazmaginiz teleb olunur. 
+
+//1.  Proqramda statik olaraq 10 sual ve her sualin 3 cavabi olacaq. 
+
+//2.  Her defe proqrami basladan zaman variantlarda olan cavablar random deyismelidir. Meselen:
+
+//	Proqrami 1 - ci defe isedusen zaman sualin cavabi 
+//	a) Baki
+//    b) Gence
+//    c) Naxcivan
+//    Proqrami 2-ci defe isedusen zaman sualin cavabi
+//	a) Gence
+//    b) Naxcivan
+//    c) Baki
+//    Proqram bu qaydada her defe cavablari qarisdirmalidir.
+
+//3.  Butun suallar ilk defeden acilmir bir suala cavab verennen sonra o biri sual acilir.
+
+//4.  Istifadeci suala cavab vermek ucun sadece varianti secmelidir(Sualin cavabini konsolda yazmamalidir).
+
+//5.Duzgun cavab verilende hemen sual yasil rengde olsun, sehv cavabda qirmizi rengde.
+
+//6.  Her duzgun suala gore user 10 xal qazanir her verdiyi cavaba gore 10 xal cixilir. Xal eger menfi olursa o zaman 0 xal gostersin yeni menfi xal olmasin. Proqramin sonunda yazilsin ki, imtahan bitmisdir siz filan qeder xal toplamisiniz. 
+
+
+
+using System;
+
+namespace Quiz
 {
-    class Program
+    internal class Program
     {
-        static void Main()
+
+
+        static void showAllOptions(string[] optns)
         {
-            int choice = default;
-
-            Console.WriteLine("Insert number: ");
-            double number1 = Convert.ToDouble(Console.ReadLine());
-
-        Label:
-
-            Console.WriteLine("\nInsert operation: ");
-            ConsoleKeyInfo key = Console.ReadKey();
-
-            if (key.Key == ConsoleKey.OemPlus)
+            for (int i = 0; i < 3; i++)
             {
-                // Console.WriteLine("+");
-                choice = 1;
+                Console.WriteLine(optns[i]);
             }
-            else if (key.Key == ConsoleKey.Oem2)
+        }
+
+        static string[] Mix(string a, string b, string c)
+        {
+            string[] arr = { a, b, c };
+
+            int oldPos;
+            int newPos;
+
+            for (int i = 0; i < 10; i++)
             {
-                // Console.WriteLine("/");
-                choice = 4;
-            }
-            else if (key.Key == ConsoleKey.OemMinus)
-            {
-                choice = 2;
-                // Console.WriteLine("-");
-            }
-            else if (key.Key == ConsoleKey.D8)
-            {
-                //  Console.WriteLine("*");
-                choice = 3;
-            }
-            else
-            {
-                goto Label;
-                Console.WriteLine(key.Key);
+                oldPos = Random.Shared.Next(0, 3);
+                newPos = Random.Shared.Next(0, 3);
+
+                string temp;
+
+                temp = arr[oldPos];
+                arr[oldPos] = arr[newPos];
+                arr[newPos] = temp;
             }
 
-            Console.WriteLine("\nInsert number: ");
-            double number2 = Convert.ToDouble(Console.ReadLine());
+            return arr;
+        }
 
-            double result = default;
 
-            Console.Write("Result: ");
-            switch (choice)
+        private static void Main()
+        {
+            int totalScore = 0;
+
+            string[,] s = new string[,]
             {
-                case 0:
-                    break;
-                case 1:
-                    result = number2 + number1;
-                    Console.WriteLine(result);
-                    break;
-                case 2:
-                    result = number1 - number2;
-                    Console.WriteLine(result);
-                    break;
-                case 3:
-                    result = number1 * number2;
-                    Console.WriteLine(result);
-                    break;
-                case 4:
-                    result = number1 / number2;
-                    Console.WriteLine(result);
-                    break;
+            {"Which one is reference type ?", "Struct", "Class", "Int", "Class" },
+            { "Which one isn't cast operator ?", "Is a", "As a", "Has a", "Has a" },
+            { "What is OOP ?", "Type", "Namespace", "Paradigma", "Paradigma" },
+            { "Which one is un overloadable ?", "+=", "&", "&&", "&" },
+            { "Property isn't consisted with :","Get","Set","Let","Let"}
+            };
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Welcome quiz, Good Luck :)");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Thread.Sleep(1000);
+            Console.Clear();
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine(s[i, 0]);
+                Console.BackgroundColor = ConsoleColor.Black;
+
+                showAllOptions(Mix(s[i, 1], s[i, 2], s[i, 3]));
+                Console.WriteLine("**************");
+                string uanswer = Console.ReadLine();
+
+                if (uanswer == s[i, 4])
+                {
+                    Console.Clear();
+
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    Console.WriteLine(s[i, 0]);
+                    Console.BackgroundColor = ConsoleColor.Black;
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    showAllOptions(Mix(s[i, 1], s[i, 2], s[i, 3]));
+                    Console.WriteLine($"You choosed {uanswer}");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    totalScore += 10;
+
+                    Thread.Sleep(3000);
+                    Console.Clear();
+                }
+                else
+                {
+                    Console.Clear();
+
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    Console.WriteLine(s[i, 0]);
+                    Console.BackgroundColor = ConsoleColor.Black;
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    showAllOptions(Mix(s[i, 1], s[i, 2], s[i, 3]));
+                    Console.WriteLine($"You choosed {uanswer}");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    Thread.Sleep(3000);
+                    Console.Clear();
+                }
             }
 
-            number1 = result;
+            Console.BackgroundColor = ConsoleColor.Magenta;
+            Console.WriteLine($"Your score is {totalScore} /50");
+            Console.BackgroundColor = ConsoleColor.Black;
 
-            goto Label;
 
         }
     }
