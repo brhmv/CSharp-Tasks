@@ -1,4 +1,3 @@
-
 namespace Boss.az
 {
     enum Level { A1 = 1, A2, B1, B2, C1, C2 }
@@ -16,7 +15,7 @@ namespace Boss.az
             this.languageLevel = languageLevel;
         }
 
-        public static Language createLanguage()
+        public static Language CreateLanguage()
         {
             while (true)
             {
@@ -112,7 +111,7 @@ namespace Boss.az
             Experience = experience;
         }
 
-        public static CV createCv()
+        public static CV CreateCv()
         {
             while (true)
             {
@@ -161,12 +160,12 @@ namespace Boss.az
 
                     Console.Write("Insert amount of languages:");
                     lcount = Convert.ToInt32(Console.ReadLine());
-                                         
+
                     for (int i = 0; i < lcount; i++)
                     {
-                        Language l = Language.createLanguage();
+                        Language l = Language.CreateLanguage();
                         languages.Add(l);
-                    }                   
+                    }
 
                     return new(profession, universityname, universityScore, skills, companies, differSertificate, linkedin, gitlink, languages, experience);
                 }
@@ -178,7 +177,7 @@ namespace Boss.az
                 }
             }
         }
-
+        
         public void Print()
         {
             Console.WriteLine($"**CV**\nProffesion:{Profession}\nUniversity:{UniversityName}\nUniversity Score:{UniversityScore}\nSpecial Certificste:{DifferSertificate}\n");
