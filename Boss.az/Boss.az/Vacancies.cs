@@ -6,6 +6,9 @@ namespace Boss.az
     {
 
         #region Properties
+
+        //Title
+        
         public string? Name { get; }
 
         public double Salary { get; }
@@ -16,6 +19,7 @@ namespace Boss.az
 
         public Worktype workType { get; }
         #endregion
+        public Vacancy() { }
 
         public Vacancy(string name, double salary, double minExperience, double maxAge, Worktype wt)
         {
@@ -26,7 +30,7 @@ namespace Boss.az
             workType = wt;
         }
 
-        public static Vacancy createVacancy()
+        public static Vacancy CreateVacancy()
         {
             while (true)
             {
