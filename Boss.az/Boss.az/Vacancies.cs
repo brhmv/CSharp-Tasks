@@ -6,9 +6,14 @@ namespace Boss.az
     {
 
         #region Properties
+        private static int ID = 0;
 
-        //Title
-        
+        public int ObjectId;
+
+        public Employer FromWhichEmployer { get; set; }
+
+        public string Title { get; set; }
+
         public string? Name { get; }
 
         public double Salary { get; }
@@ -18,12 +23,36 @@ namespace Boss.az
         public double MaxAge { get; }
 
         public Worktype workType { get; }
-        #endregion
-        public Vacancy() { }
 
-        public Vacancy(string name, double salary, double minExperience, double maxAge, Worktype wt)
+        #endregion
+
+
+        /// <summary>
+        /// 
+        /// (int id){
+        /// foreach(var vacancy in vacancies){
+        /// foreach(var item in Employers){
+        /// if(vacancy.fromwhichemployer==item){
+        /// item.Notifications.Add(new Notification())
+        /// }
+        /// }
+        /// </summary>
+
+        //apply vacancy
+        //public void ApplyToVacancy()
+        //{
+        //   Boss.az.Employers.
+        //    FromWhichEmployer.Notifications.Add(notf);
+        //}
+
+
+        public Vacancy(string name, string title, double salary, double minExperience, double maxAge, Worktype wt)
         {
+            FromWhichEmployer = null;
+            //FromWhichEmployer = emp;
+            ObjectId = ID++;
             Name = name;
+            Title = title;
             Salary = salary;
             MinExperience = minExperience;
             MaxAge = maxAge;
@@ -36,12 +65,15 @@ namespace Boss.az
             {
                 try
                 {
-                    string? name;
+                    string? name, title;
                     double salary, minExperience, maxAge;
                     Worktype wt;
 
                     Console.Write("Insert name: ");
                     name = Console.ReadLine();
+
+                    Console.Write("Insert title: ");
+                    title = Console.ReadLine();
 
                     Console.Write("Insert salary:");
                     salary = Convert.ToDouble(Console.ReadLine());
@@ -74,9 +106,10 @@ namespace Boss.az
                             break;
                         default:
                             continue;
-                    }                
+                    }
 
-                    return new Vacancy(name, salary, minExperience, maxAge, wt);
+
+                    return new Vacancy(name, title, salary, minExperience, maxAge, wt);
                 }
                 catch (Exception ex)
                 {
@@ -88,7 +121,8 @@ namespace Boss.az
             }
         }
 
-        public override string ToString() => $"Job: {Name} Salary: {Salary} Minimum Experience: {MinExperience} Maximum Age: {MaxAge} Work type: {workType}";
+        public override string ToString() => $"ID:{ObjectId} FromWhichEmployer:{FromWhichEmployer} Job: {Name} Title: {Title} " +
+            $"Salary: {Salary} Minimum Experience: {MinExperience} Maximum Age: {MaxAge} Work type: {workType}";
 
     }
 }
