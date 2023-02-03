@@ -5,9 +5,9 @@ namespace Boss.az
 
         public List<Vacancy> Vacancies { get; set; }
 
-        public Employer(string name, string surname, int age, string phone, string city, List<Vacancy>? vacancies = null) : base(name, surname, age, phone, city)
+        public Employer(string name, string surname, int age, string phone, string city) : base(name, surname, age, phone, city)
         {
-            Vacancies = vacancies;
+            Vacancies = new();
         }
 
         public static Employer createEmployer()
@@ -44,9 +44,11 @@ namespace Boss.az
                 }
             }
         }
-
+        
+        //null reference
         public void addVacancy(Vacancy vacancy) { Vacancies.Add(vacancy); }
-
+        ////////////////
+        
         public void showVacancies()
         {
             foreach (var item in Vacancies)
